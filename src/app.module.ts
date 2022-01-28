@@ -12,6 +12,7 @@ import * as RouteModules from './routes';
     TypeOrmModule.forRoot(TypeOrmConfig),
     RouteModules.AuthModule,
     RouteModules.UserModule,
+    RouteModules.CoreModule,
     GlobalModules.JwtModule.register(JwtConfig),
     GlobalModules.RedisModule.register(RedisConfig),
     GlobalModules.TrxModule.register(),
