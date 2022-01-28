@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Test with Debugger",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "args": [
+        "--colors",
+        "--config=${workspaceFolder}/test/jest-e2e.json",
+        "--detectOpenHandles",
+        "--runInBand"
+      ],
+      "runtimeArgs": ["--nolazy"],
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      },
+      "outputCapture": "std",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "name": "Attach Debugger To App",
+      "type": "node",
+      "request": "attach",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "args": ["${workspaceFolder}/src/main.ts"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+      "sourceMaps": true,
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "protocol": "inspector"
+    }
+  ]
+}
